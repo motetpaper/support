@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+{% include ga.html %}
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1">
+{% capture entry %}{{page.title}} ({{page.kbdate}}){% endcapture %}
+
+  <title>{{entry}}</title>
+  {% include style.html %}
+</head>
+<body>
+<div id="wrap">
+<h1>{{ entry }}</h1>
+
+<span class="date">Published: {{ page.date | date: "%F %H:%M"}}</span>
+<br/>
+<span class="date updated">Updated: {{ page.updated | date: "%F %H:%M"}}</span>
+
+
+{{ content }}
+
+</div>
+
+<h2>Need more help?</h2>
+
+{% include form.html %}
+
+
+<hr>
+{% include footer.html %}
+
+{% if page.mermaid %}
+  {% include mermaid.html %}
+{% endif %}
+
+{% if page.mathjax %}
+  {% include mathjax.html %}
+{% endif %}
+</body>
+</html>
